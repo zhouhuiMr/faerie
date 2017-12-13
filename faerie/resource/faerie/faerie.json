@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "faerie_attack1.png",
+	"frame": {"x":1,"y":1,"w":90,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":99},
+	"sourceSize": {"w":90,"h":99}
+},
+{
+	"filename": "faerie_attack2.png",
+	"frame": {"x":1,"y":102,"w":90,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":99},
+	"sourceSize": {"w":90,"h":99}
+},
+{
+	"filename": "faerie_attack3.png",
+	"frame": {"x":93,"y":1,"w":90,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":99},
+	"sourceSize": {"w":90,"h":99}
+},
+{
+	"filename": "faerie_fly1.png",
+	"frame": {"x":93,"y":102,"w":90,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":99},
+	"sourceSize": {"w":90,"h":99}
+},
+{
+	"filename": "faerie_fly2.png",
+	"frame": {"x":185,"y":1,"w":90,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":99},
+	"sourceSize": {"w":90,"h":99}
+},
+{
+	"filename": "faerie_fly3.png",
+	"frame": {"x":185,"y":102,"w":90,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":99},
+	"sourceSize": {"w":90,"h":99}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "faerie.png",
+	"format": "RGBA8888",
+	"size": {"w":276,"h":202},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5e92078a7468ea29397570f3ff5cfc7c:dcbf749edf1b4600fbfbd4b2f4036281:05e50f16826f07098f9f4956ed64cbae$"
+}
+}
