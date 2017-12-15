@@ -8,6 +8,8 @@
         this.ATK = 1;
         this.DEF = 0;
 
+        this.weapon = null;
+
         // object init
         this.init();
     }
@@ -19,10 +21,14 @@
             this.game.physics.enable(this.body,Phaser.Physics.ARCADE);
             this.body.body.setSize(40,70,40,30);
             this.body.body.collideWorldBounds = true;
+
             //faerie action of fly
             this.body.animations.add("fly",["faerie_fly1.png","faerie_fly2.png","faerie_fly3.png"]);
             this.body.animations.add("attack",["faerie_attack1.png","faerie_attack2.png","faerie_attack3.png","faerie_attack4.png"]);
             this.fly();
+
+            //init weapon
+            this.weapon = new fireball(this.game,this.body,45,12,false);
         },
         fly : function(){
             this.body.animations.play("fly",10,true);
@@ -32,6 +38,7 @@
             var f = this;
             atk.onComplete.add(function(sprite, animation){
                 if(sprite.frame == 3){
+                    f.weapon.weapon.fire();
                     f.fly();
                 }
             },this)

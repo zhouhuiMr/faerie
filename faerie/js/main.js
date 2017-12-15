@@ -25,6 +25,7 @@ function preload(){
     game.load.onFileComplete.add(filecomplete, this);
     game.load.onLoadComplete.add(loadcomplete, this);
     game.load.atlas('faerie','/faerie/resource/faerie/faerie.png','/faerie/resource/faerie/faerie.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.atlas('bullet','/faerie/resource/fireball/fireball.png','/faerie/resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 }
 
 var player = null,
@@ -39,7 +40,7 @@ function create(){
     game.physics.startSystem(Phaser.ARCADE);
 
     //set back ground
-    game.stage.backgroundColor = "#77b8f8";
+    game.stage.backgroundColor = "#77b8f8";//#77b8f8 #22384e
 
     //set scale mode
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -78,8 +79,8 @@ function update(){
 
 //debug game
 function render(){
-    game.debug.body(player.body);
-    game.debug.spriteInfo(player.body, 32, 32);
+    // game.debug.body(player.body);
+    // game.debug.spriteInfo(player.body, 32, 32);
 }
 
 /*================================*/
