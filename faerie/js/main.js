@@ -26,6 +26,7 @@ function preload(){
     game.load.onLoadComplete.add(loadcomplete, this);
     game.load.atlas('faerie','/faerie/resource/faerie/faerie.png','/faerie/resource/faerie/faerie.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('bullet','/faerie/resource/fireball/fireball.png','/faerie/resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.atlas('prop','/faerie/resource/prop/prop.png','/faerie/resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 }
 
 var player = null,
@@ -40,7 +41,7 @@ function create(){
     game.physics.startSystem(Phaser.ARCADE);
 
     //set back ground
-    game.stage.backgroundColor = "#77b8f8";//#77b8f8 #22384e
+    game.stage.backgroundColor = "#000000";//#77b8f8 #22384e
 
     //set scale mode
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -60,21 +61,8 @@ function update(){
     player.body.body.velocity.x = 0;
     player.body.body.velocity.y = 0;
 
-    if(keycontroller.UP.isDown){
-        player.body.body.velocity.y = -200;
-    }
-    if(keycontroller.DOWN.isDown){
-        player.body.body.velocity.y = 200;
-    }
-    if(keycontroller.LEFT.isDown){
-        player.body.body.velocity.x = -200;
-    }
-    if(keycontroller.RIGHT.isDown){
-        player.body.body.velocity.x = 200;
-    }
-    if(keycontroller.ATK.isDown){
-        player.attack();
-    }
+    player.move(keycontroller);
+    player.attack(keycontroller);
 }
 
 //debug game
