@@ -11,16 +11,13 @@
 
         this.weapon = null;
 
-        this.partical = null;
+        this.emitter = null;
 
         // object init
         this.init();
     }
     faerie.prototype = {
         init : function(){
-            //init partical
-            this.partical = new particalStar(this.game,80, this.game.height/2+40,60);
-
             //init faerie
             this.body = this.game.add.sprite(120,this.game.height/2,'faerie');
             this.body.anchor.set(0.5,0.5);
@@ -35,8 +32,22 @@
             this.fly();
 
             //init weapon
-            this.weapon = new fireball(this.game,this.body,45,12,false);
-            this.partical.start();
+            this.weapon = new fireball(this.game,this.body,50,11,false);
+
+            //init partical
+            this.createPartical();
+        },
+        createPartical:function(){
+            this.emitter = this.game.add.emitter(0,0,60);
+            this.emitter.makeParticles("prop",["star.png"]);
+            this.emitter.width = 20;
+            this.emitter.height = 15;
+            this.emitter.setXSpeed(-10,0);
+            this.emitter.setYSpeed(0,20);
+            this.emitter.gravity.x = -300;
+            this.emitter.setAlpha(0.7,1,500);
+            this.emitter.setScale(0.7,0,0.7,0,800);
+            this.emitter.start(false,1000,20);
         },
         fly : function(){
             this.body.animations.play("fly",10,true);
@@ -62,12 +73,13 @@
             }
             if(keycontroller.LEFT.isDown){
                 this.body.body.velocity.x = -1*this.speed;
+                this.emitter.start(false,1000,20);
             }
             if(keycontroller.RIGHT.isDown){
                 this.body.body.velocity.x = this.speed;
             }
-            this.partical.emitter.emitX = this.body.x-40;
-            this.partical.emitter.emitY = this.body.y+40;
+            this.emitter.emitX = this.body.x-45;
+            this.emitter.emitY = this.body.y+40;
         }
     }
     window.faerie = faerie;

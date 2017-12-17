@@ -41,7 +41,7 @@ function create(){
     game.physics.startSystem(Phaser.ARCADE);
 
     //set back ground
-    game.stage.backgroundColor = "#000000";//#77b8f8 #22384e
+    game.stage.backgroundColor = "#22384e";//#77b8f8 #22384e
 
     //set scale mode
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
