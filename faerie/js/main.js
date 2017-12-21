@@ -47,7 +47,6 @@ function create(){
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
 
-
     GAMESCENE = new mainScene(game);
 
     player = GAMESCENE.Player;
@@ -120,8 +119,10 @@ function loadcomplete(){
     }
     mainScene.prototype = {
         init : function(){
+            //add background
+            this.game.add.sprite(0,0,'prop','background.png');
             //init key board controller
-           this.KeyController = this.game.input.keyboard.addKeys({
+            this.KeyController = this.game.input.keyboard.addKeys({
                 "UP":Phaser.Keyboard.W,
                 "DOWN":Phaser.Keyboard.S,
                 "LEFT":Phaser.Keyboard.A,

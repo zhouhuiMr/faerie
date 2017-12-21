@@ -1,8 +1,16 @@
 {"frames": [
 
 {
+	"filename": "background.png",
+	"frame": {"x":0,"y":0,"w":960,"h":540},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":540},
+	"sourceSize": {"w":960,"h":540}
+},
+{
 	"filename": "star.png",
-	"frame": {"x":1,"y":1,"w":40,"h":40},
+	"frame": {"x":960,"y":0,"w":40,"h":40},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":40},
@@ -13,8 +21,8 @@
 	"version": "1.0",
 	"image": "prop.png",
 	"format": "RGBA8888",
-	"size": {"w":42,"h":42},
+	"size": {"w":1000,"h":540},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:decf603224a111ac4a0a0156e9901dda:43baeedca5e12c44af44a777d4a99778:c786e646cfeb3b078c6148c539ba3862$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ff839fd25d3f698581452c8cbd15b5f2:22bed74afa72af9e2925a8bc95781114:c786e646cfeb3b078c6148c539ba3862$"
 }
 }
