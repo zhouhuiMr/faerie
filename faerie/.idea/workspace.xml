@@ -18,22 +18,22 @@
     <favorites_list name="faerie" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="122" column="33" lean-forward="false" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+            <state relative-caret-position="614">
+              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="faerie.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="faerie.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/faerie/faerie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1442">
-              <caret line="84" column="4" lean-forward="false" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
+            <state relative-caret-position="22">
+              <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -63,8 +63,9 @@
         <option value="$PROJECT_DIR$/js/bullet/bullet.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/prop/prop.js" />
-        <option value="$PROJECT_DIR$/js/faerie/faerie.js" />
+        <option value="$PROJECT_DIR$/resource/prop/prop.json" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/faerie/faerie.js" />
       </list>
     </option>
   </component>
@@ -75,9 +76,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="3" />
+    <option name="y" value="4" />
     <option name="width" value="1920" />
-    <option name="height" value="1030" />
+    <option name="height" value="1029" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
@@ -94,6 +95,17 @@
       <foldersAlwaysOnTop value="false" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="faerie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faerie" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -101,16 +113,21 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="faerie" type="cbb8eebc:String" user="faerie" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
             <path>
-              <item name="faerie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="faerie" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="faerie" type="cbb8eebc:String" user="faerie" />
+              <item name="js" type="cbb8eebc:String" user="js" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="faerie" type="cbb8eebc:String" user="faerie" />
+              <item name="js" type="cbb8eebc:String" user="js" />
+              <item name="faerie" type="cbb8eebc:String" user="faerie" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="faerie" type="cbb8eebc:String" user="faerie" />
+              <item name="resource" type="cbb8eebc:String" user="resource" />
             </path>
           </expand>
           <select />
@@ -129,16 +146,16 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHubRepository\faerie\faerie\js" />
+      <recent name="E:\GitHubRepository\faerie\faerie" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\GitHubRepository\faerie\faerie\resource\prop" />
       <recent name="E:\GitHubRepository\faerie\faerie\resource\fireball" />
       <recent name="E:\GitHubRepository\faerie\faerie\resource\faerie" />
       <recent name="E:\GitHubRepository\faerie\faerie\resouce\faerie" />
       <recent name="E:\GitHubRepository\faerie\faerie\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\GitHubRepository\faerie\faerie\js" />
-      <recent name="E:\GitHubRepository\faerie\faerie" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -237,16 +254,18 @@
       <workItem from="1513560749956" duration="3789000" />
       <workItem from="1513643795990" duration="1980000" />
       <workItem from="1513846963018" duration="1639000" />
+      <workItem from="1513902234975" duration="3832000" />
+      <workItem from="1513990616181" duration="5596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57189000" />
+    <option name="totallyTimeSpent" value="66617000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="3" width="1920" height="1030" extended-state="0" />
+    <frame x="0" y="4" width="1920" height="1029" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15772703" sideWeight="0.4916388" order="2" side_tool="false" content_ui="tabs" x="582" y="119" width="475" height="918" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15772703" sideWeight="0.4916388" order="2" side_tool="false" content_ui="tabs" x="582" y="119" width="475" height="918" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295964" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5021097" order="8" side_tool="true" content_ui="tabs" />
@@ -666,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/bullet/bullet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -683,24 +695,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resource/prop/prop.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/faerie/faerie.js">
+    <entry file="file://$PROJECT_DIR$/js/bullet/bullet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1442">
-          <caret line="84" column="4" lean-forward="false" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
+        <state relative-caret-position="440">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="122" column="33" lean-forward="false" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+        <state relative-caret-position="614">
+          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/faerie/faerie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding />
         </state>
       </provider>

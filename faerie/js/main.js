@@ -30,7 +30,8 @@ function preload(){
 }
 
 var player = null,
-    keycontroller = null;
+    keycontroller = null,
+    foreground = null;
 
 // init the object of game
 function create(){
@@ -53,6 +54,9 @@ function create(){
 
     keycontroller = GAMESCENE.KeyController;
 
+    //set foreground
+    foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,172,'prop','foreground.png');
+    foreground.anchor.set(0,1);
 }
 
 //refresh frame of game
@@ -62,6 +66,7 @@ function update(){
 
     player.move(keycontroller);
     player.attack(keycontroller);
+    foreground.tilePosition.x -= 2;
 }
 
 //debug game
