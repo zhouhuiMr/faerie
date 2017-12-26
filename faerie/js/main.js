@@ -24,6 +24,7 @@ function preload(){
     game.load.onLoadStart.add(loadStart, this);
     game.load.onFileComplete.add(filecomplete, this);
     game.load.onLoadComplete.add(loadcomplete, this);
+    game.load.atlas('ground','/faerie/resource/ground/ground.png','/faerie/resource/ground/ground.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('faerie','/faerie/resource/faerie/faerie.png','/faerie/resource/faerie/faerie.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('bullet','/faerie/resource/fireball/fireball.png','/faerie/resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('prop','/faerie/resource/prop/prop.png','/faerie/resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
@@ -55,7 +56,7 @@ function create(){
     keycontroller = GAMESCENE.KeyController;
 
     //set foreground
-    foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,172,'prop','foreground.png');
+    foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,100,'ground','foreground.png');
     foreground.anchor.set(0,1);
 }
 
@@ -125,7 +126,7 @@ function loadcomplete(){
     mainScene.prototype = {
         init : function(){
             //add background
-            this.game.add.sprite(0,0,'prop','background.png');
+            this.game.add.sprite(0,0,'ground','background.png');
             //init key board controller
             this.KeyController = this.game.input.keyboard.addKeys({
                 "UP":Phaser.Keyboard.W,
