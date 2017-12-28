@@ -21,6 +21,7 @@
             //init faerie
             this.body = this.game.add.sprite(120,this.game.height/2,'faerie');
             this.body.anchor.set(0.5,0.5);
+            this.body.scale.set(1,1);
             this.body.smoothed = true;
             this.game.physics.enable(this.body,Phaser.Physics.ARCADE);
             this.body.body.setSize(40,70,40,30);
@@ -41,7 +42,7 @@
             this.emitter = this.game.add.emitter(0,0,60);
             this.emitter.makeParticles("prop",["star.png"]);
             this.emitter.width = 20;
-            this.emitter.height = 15;
+            this.emitter.height = 18;
             this.emitter.setXSpeed(-10,0);
             this.emitter.setYSpeed(0,20);
             this.emitter.gravity.x = -300;
