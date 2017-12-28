@@ -56,7 +56,7 @@ function create(){
     keycontroller = GAMESCENE.KeyController;
 
     //set foreground
-    foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,100,'ground','foreground.png');
+    foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,94,'ground','foreground.png');
     foreground.anchor.set(0,1);
 }
 
@@ -74,6 +74,8 @@ function update(){
 function render(){
     // game.debug.body(player.body);
     // game.debug.spriteInfo(player.body, 32, 32);
+    // game.debug.body(foreground);
+    // game.debug.spriteInfo(foreground, 32, 32);
 }
 
 /*================================*/
