@@ -109,13 +109,18 @@ function loadcomplete(){
         this.Player = null;
 
         this.foreground = null;
+        this.midground = null;
 
         this.init();
     }
     mainScene.prototype = {
         init : function(){
-            //add background
+            //add background(farground)
             this.game.add.sprite(0,0,'ground','background.png');
+
+            //add far background
+            this.midground = this.foreground = this.game.add.tileSprite(0,0,GAMEWIDTH,GAMEHEIGHT,'ground','farground1.png');
+
             //init key board controller
             this.KeyController = this.game.input.keyboard.addKeys({
                 "UP":Phaser.Keyboard.W,
@@ -129,14 +134,16 @@ function loadcomplete(){
             this.Player = new faerie(this.game);
 
             //set foreground
-            this.foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,94,'ground','foreground.png');
-            game.physics.arcade.enable(this.foreground);
-
-            this.foreground.body.setSize(GAMEWIDTH,54,0,40);
+            this.foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,40,'ground');
+            //set foreground animations
+            this.foreground.animations.add('grass',['foreground1.png','foreground2.png','foreground3.png'],2,true,true);
+            this.foreground.animations.play('grass',2,true,false);
+            //set foreground physics
+            this.game.physics.arcade.enable(this.foreground);
+            this.foreground.body.setSize(GAMEWIDTH,10,0,20);
             this.foreground.body.collideWorldBounds = true;
             this.foreground.body.immovable = true;
             this.foreground.anchor.set(0,1);
-
         },
         update :function(){
             this.Player.body.body.velocity.x = 0;
@@ -145,11 +152,9 @@ function loadcomplete(){
             this.Player.move(this.KeyController);
             this.Player.attack(this.KeyController);
 
-            if(this.KeyController.RIGHT.isDown){
-                this.foreground.tilePosition.x -= 4;
-            }else{
-                this.foreground.tilePosition.x -= 2;
-            }
+            this.foreground.tilePosition.x -= 5;
+
+            this.midground.tilePosition.x -= 4;
 
             this.game.physics.arcade.collide(this.Player.body, this.foreground);
         },
