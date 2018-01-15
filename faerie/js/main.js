@@ -30,9 +30,6 @@ function preload(){
     game.load.atlas('prop','/faerie/resource/prop/prop.png','/faerie/resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 }
 
-var player = null,
-    keycontroller = null,
-    foreground = null;
 
 // init the object of game
 function create(){
@@ -43,7 +40,7 @@ function create(){
     game.physics.startSystem(Phaser.ARCADE);
 
     //set back ground
-    game.stage.backgroundColor = "#22384e";//#77b8f8 #22384e
+    game.stage.backgroundColor = "#333333";//#77b8f8 #22384e #22384e
 
     //set scale mode
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -76,11 +73,11 @@ function loadStart(){
 
 // the game is loading
 function filecomplete(progress, cacheKey, success, totalLoaded, totalFiles){
-    console.info("progress:"+progress)
-    console.info("cacheKey:"+cacheKey)
-    console.info("success:"+success)
-    console.info("totalLoaded:"+totalLoaded)
-    console.info("totalFiles:"+totalFiles)
+    console.info("progress:"+progress);
+    console.info("cacheKey:"+cacheKey);
+    console.info("success:"+success);
+    console.info("totalLoaded:"+totalLoaded);
+    console.info("totalFiles:"+totalFiles);
 }
 
 //the game loading  is complete
@@ -98,12 +95,16 @@ function loadcomplete(){
     //start scene of game
     var startScene = function(){
 
-    }
+    };
     window.startScene = startScene;
 
     //main scene of game
     var mainScene = function(game){
         this.game = game;
+
+        this.LEVELNUMBER = 1;
+        this.level = null;
+
         this.KeyController = null;
 
         this.Player = null;
@@ -112,51 +113,53 @@ function loadcomplete(){
         this.midground = null;
 
         this.init();
-    }
+    };
     mainScene.prototype = {
         init : function(){
-            //add background(farground)
-            this.game.add.sprite(0,0,'ground','background.png');
-
-            //add far background
-            this.midground = this.foreground = this.game.add.tileSprite(0,0,GAMEWIDTH,GAMEHEIGHT,'ground','farground1.png');
-
             //init key board controller
             this.KeyController = this.game.input.keyboard.addKeys({
                 "UP":Phaser.Keyboard.W,
                 "DOWN":Phaser.Keyboard.S,
                 "LEFT":Phaser.Keyboard.A,
                 "RIGHT":Phaser.Keyboard.D,
-                "ATK":Phaser.Keyboard.J,
+                "ATK":Phaser.Keyboard.J
             });
 
-            //create faerie
-            this.Player = new faerie(this.game);
-
-            //set foreground
-            this.foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,40,'ground');
-            //set foreground animations
-            this.foreground.animations.add('grass',['foreground1.png','foreground2.png','foreground3.png'],2,true,true);
-            this.foreground.animations.play('grass',2,true,false);
-            //set foreground physics
-            this.game.physics.arcade.enable(this.foreground);
-            this.foreground.body.setSize(GAMEWIDTH,10,0,20);
-            this.foreground.body.collideWorldBounds = true;
-            this.foreground.body.immovable = true;
-            this.foreground.anchor.set(0,1);
+            //init game level
+            this.level = null;
+            if(this.LEVELNUMBER == 1){
+                this.level = new levelOne(this.game);
+            }
+            if(this.level != null){
+                this.Player = this.level.Player;
+                this.foreground = this.level.foreground;
+                this.midground = this.level.midground;
+            }else{
+                var tiptext = this.game.add.text(this.game.world.centerX,
+                    this.game.world.centerY,
+                    '\u6e38\u620f\u521d\u59cb\u5316\u5931\u8d25',
+                    {
+                        "fill"            : "#ffffff",
+                        "stroke"          : "#50a6fb",
+                        "strokeThickness" : "5"
+                    });
+                tiptext.anchor.set(0.5,0.5);
+            }
         },
         update :function(){
-            this.Player.body.body.velocity.x = 0;
-            this.Player.body.body.velocity.y = 0;
+            if(this.level != null){
+                this.Player.body.body.velocity.x = 0;
+                this.Player.body.body.velocity.y = 0;
 
-            this.Player.move(this.KeyController);
-            this.Player.attack(this.KeyController);
+                this.Player.move(this.KeyController);
+                this.Player.attack(this.KeyController);
 
-            this.foreground.tilePosition.x -= 5;
+                this.foreground.tilePosition.x -= 5;
 
-            this.midground.tilePosition.x -= 4;
+                this.midground.tilePosition.x -= 4;
 
-            this.game.physics.arcade.collide(this.Player.body, this.foreground);
+                this.game.physics.arcade.collide(this.Player.body, this.foreground);
+            }
         },
         debug:function(){
             //this.game.debug.body(this.Player.body);
@@ -164,6 +167,6 @@ function loadcomplete(){
             //this.game.debug.body(this.foreground);
             //this.game.debug.spriteInfo(this.foreground, 32, 32);
         }
-    }
+    };
     window.mainScene = mainScene;
-})(window)
+})(window);
