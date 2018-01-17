@@ -1,4 +1,9 @@
 (function(window){
+    /**=======================**/
+    /**                       **/
+    /** create faerie object  **/
+    /**                       **/
+    /**=======================**/
     var faerie = function(game){
         this.game = game;
         this.body = null;
@@ -7,7 +12,8 @@
         this.HEALTH = 5;
         this.ATK = 1;
         this.DEF = 0;
-        this.speed = 200;
+        this.SPEEDX = 250;
+        this.SPEEDY = 250;
 
         this.weapon = null;
 
@@ -19,12 +25,13 @@
     faerie.prototype = {
         init : function(){
             //init faerie
-            this.body = this.game.add.sprite(120,this.game.height/2,'faerie');
+            this.body = this.game.add.sprite(120,this.game.height/2,'character');
             this.body.anchor.set(0.5,0.5);
             this.body.scale.set(1,1);
             this.body.smoothed = true;
             this.game.physics.enable(this.body,Phaser.Physics.ARCADE);
             this.body.body.setSize(40,70,40,30);
+            this.body.body.immovable = true;
             this.body.body.collideWorldBounds = true;
 
             //faerie action of fly
@@ -67,21 +74,90 @@
         },
         move : function(keycontroller){
             if(keycontroller.UP.isDown){
-                this.body.body.velocity.y = -1*this.speed;
+                this.body.body.velocity.y = -1*this.SPEEDY;
             }
             if(keycontroller.DOWN.isDown){
-                this.body.body.velocity.y = this.speed;
+                this.body.body.velocity.y = this.SPEEDY;
             }
             if(keycontroller.LEFT.isDown){
-                this.body.body.velocity.x = -1*this.speed;
+                this.body.body.velocity.x = -1*this.SPEEDX;
                 this.emitter.start(false,1000,20);
             }
             if(keycontroller.RIGHT.isDown){
-                this.body.body.velocity.x = this.speed;
+                this.body.body.velocity.x = this.SPEEDX;
             }
             this.emitter.emitX = this.body.x-45;
             this.emitter.emitY = this.body.y+40;
         }
-    }
+    };
     window.faerie = faerie;
+
+
+    /**=======================**/
+    /**                       **/
+    /** create pumpkin object **/
+    /**                       **/
+    /**=======================**/
+    var pumpkin = function(game){
+        this.game = game;
+        this.body = null;
+
+        //object attribute
+        this.HEALTH = 1;
+        this.ATK = 1;
+        this.DEF = 0;
+
+        this.STARTX = 0;
+        this.STARTY = 0;
+        this.SPEEDX = 0;
+        this.SPEEDY = 0;
+        this.ENDX = 0;
+        this.ENDY = 0;
+        this.ANGLE = 0;
+        this.A = 0;
+        this.DWELLTIME = 0;
+
+
+        this.weapon = null;
+
+        this.emitter = null;
+
+        this.moveType = 1;
+
+        this.init();
+    };
+    pumpkin.prototype = {
+        init : function(){
+            this.body = this.game.add.sprite(this.game.world.width,0,'character','pumpkin.png');
+            this.body.anchor.set(0.5,0.5);
+            this.body.scale.set(1,1);
+            this.body.smoothed = true;
+            this.body.outOfBoundsKill = false;
+            this.body.checkWorldBounds = false;
+            this.game.physics.enable(this.body,Phaser.Physics.ARCADE);
+            this.body.body.collideWorldBounds = false;
+            this.body.body.immovable = true;
+        },
+        move : function(){
+            switch(this.moveType){
+                case 1:
+                    moveMent.line(this);
+                    break;
+                case 2:
+                    moveMent.parabolic_equation(this);
+                    break;
+            }
+        },
+        kill : function(){
+            this.body.kill();
+        },
+        destroy : function(){
+            this.body.destroy();
+            this.body = null;
+        },
+        clone : function(){
+            return new pumpkin(this.game);
+        }
+    };
+    window.pumpkin = pumpkin;
 })(window)

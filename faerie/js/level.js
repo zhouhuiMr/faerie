@@ -12,6 +12,10 @@
         this.foreground = null;
         this.midground = null;
 
+        this.enemyGroup = null;
+
+        this.enemyCreateTime = null;
+
         this.init();
     }
     levelOne.prototype = {
@@ -25,6 +29,17 @@
             //create faerie
             this.Player = new faerie(this.game);
 
+            //init enemy creating time
+            this.enemyCreateTime = {
+                pumpkinQueue : new Date().getTime(),
+                pumpkinSingle : {
+                    line :new Date().getTime(),
+                    parabolic_equation : new Date().getTime()
+                }
+            };
+            //craete enemy and add this to group
+            this.enemyGroup = new Array();
+
             //set foreground
             this.foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,40,'ground');
             //set foreground animations
@@ -36,6 +51,44 @@
             this.foreground.body.collideWorldBounds = true;
             this.foreground.body.immovable = true;
             this.foreground.anchor.set(0,1);
+        },
+        enemyCreate : function(){
+            var type = Math.round(Math.random()*2);
+            switch(type){
+                case 1 :
+                    //single pumpin create
+                    var pumpkinSingleTime = this.enemyCreateTime.pumpkinSingle.line,
+                        nowTime = new Date().getTime();
+                    var interval_pumpkinSingle = 2000;
+                    if(nowTime - pumpkinSingleTime >= interval_pumpkinSingle){
+                        var p = new pumpkin(this.game);
+                        p.body.x = this.game.world.width+p.body.width;
+                        p.body.y = Math.random()*(this.game.world.height - 50)+50;
+                        p.SPEEDX = -300;
+                        p.SPEEDY = -100+Math.random()*100;
+                        p.moveType = 1;
+                        this.enemyGroup.push(p);
+                        this.enemyCreateTime.pumpkinSingle.line = new Date().getTime();
+                    }
+                    break;
+                case 2 :
+                    var pumpkinSingleTime = this.enemyCreateTime.pumpkinSingle.parabolic_equation,
+                        nowTime = new Date().getTime();
+                    var interval_pumpkinSingle = 4000;
+                    if(nowTime - pumpkinSingleTime >= interval_pumpkinSingle){
+                        var p = new pumpkin(this.game);
+                        p.body.x = this.game.world.width+p.body.width;
+                        p.body.y = Math.random()*(this.game.world.height - 50)+50;
+                        p.A = Math.random()*50+30;
+                        p.ANGLE = 0;
+                        p.STARTY = p.body.y;
+                        p.SPEEDX = -5;
+                        p.moveType = 2;
+                        this.enemyGroup.push(p);
+                        this.enemyCreateTime.pumpkinSingle.parabolic_equation = new Date().getTime();
+                    }
+                    break;
+            }
         }
     }
     window.levelOne = levelOne;

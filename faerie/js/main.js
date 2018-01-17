@@ -25,7 +25,7 @@ function preload(){
     game.load.onFileComplete.add(filecomplete, this);
     game.load.onLoadComplete.add(loadcomplete, this);
     game.load.atlas('ground','/faerie/resource/ground/ground.png','/faerie/resource/ground/ground.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-    game.load.atlas('faerie','/faerie/resource/faerie/faerie.png','/faerie/resource/faerie/faerie.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.atlas('character','/faerie/resource/character/character.png','/faerie/resource/character/character.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('bullet','/faerie/resource/fireball/fireball.png','/faerie/resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('prop','/faerie/resource/prop/prop.png','/faerie/resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 }
@@ -34,7 +34,7 @@ function preload(){
 // init the object of game
 function create(){
     //set world bounds
-    game.world.setBounds(0, 0, GAMEWIDTH, GAMEHEIGHT);
+    game.world.setBounds(0,0, GAMEWIDTH, GAMEHEIGHT);
 
     //set physics engine
     game.physics.startSystem(Phaser.ARCADE);
@@ -109,8 +109,11 @@ function loadcomplete(){
 
         this.Player = null;
 
+        this.enemyGroup = null;
+
         this.foreground = null;
         this.midground = null;
+
 
         this.init();
     };
@@ -132,6 +135,7 @@ function loadcomplete(){
             }
             if(this.level != null){
                 this.Player = this.level.Player;
+                this.enemyGroup = this.level.enemyGroup;
                 this.foreground = this.level.foreground;
                 this.midground = this.level.midground;
             }else{
@@ -158,7 +162,86 @@ function loadcomplete(){
 
                 this.midground.tilePosition.x -= 4;
 
-                this.game.physics.arcade.collide(this.Player.body, this.foreground);
+                this.level.enemyCreate();
+
+
+                /**==============================**/
+                /**                              **/
+                /**        physics collision     **/
+                /**                              **/
+                /**==============================**/
+                var obj = this;
+                for(var i=0;i<this.enemyGroup.length;i++){
+                    var character = this.enemyGroup[i];
+                    if(character.body != null){
+                        character.move();
+                        /**==============================**/
+                        /**                              **/
+                        /** if player collide everything,**/
+                        /** then everything destroy and  **/
+                        /** player's health subtract 1   **/
+                        /**                              **/
+                        /**==============================**/
+                        this.game.physics.arcade.collide(character.body,obj.Player.body,function(ch,player){
+                            character.kill();
+                            obj.Player.HEALTH -= 1;
+                            if(obj.Player.HEALTH <= 0){
+                                //game over scene start
+                            }
+                        },null, this.game);
+
+                        /**==================================**/
+                        /**                                  **/
+                        /** if bullet collide everything,    **/
+                        /** then bullet destroy and          **/
+                        /** everything's health subtract ATK **/
+                        /**                                  **/
+                        /**==================================**/
+                        this.game.physics.arcade.collide(character.body,obj.Player.weapon.weapon.bullets,function(ch,bullet){
+                            bullet.kill();
+                            if(character.DEF - obj.Player.ATK <= 0){
+                                character.HEALTH +=character.DEF - obj.Player.ATK;
+                            }
+                            if(character.HEALTH <= 0){
+                                character.kill();
+                            }
+                        },null,this.game);
+                    }
+                }
+
+                /**==================================**/
+                /**                                  **/
+                /** remove object that is out bound  **/
+                /** and object body is null          **/
+                /**                                  **/
+                /**==================================**/
+                for(var i=0;i<this.enemyGroup.length;i++){
+                    var enemy = this.enemyGroup[i];
+                    if(!enemy.body.alive){
+                        enemy.body.destroy();
+                        this.enemyGroup.splice(i,1);
+                        break;
+                    }else{
+                        var enemyW = enemy.body.width,
+                            enemyH = enemy.body.height;
+                        if(enemy.body.x <= -1*enemyW){
+                            enemy.destroy();
+                            this.enemyGroup.splice(i,1);
+                            break;
+                        }
+                        if(enemy.body.y <= -1*enemyH){
+                            enemy.destroy();
+                            this.enemyGroup.splice(i,1);
+                            break;
+                        }
+                        if(enemy.body.y >= this.game.world.height+enemyH){
+                            enemy.destroy();
+                            this.enemyGroup.splice(i,1);
+                            break;
+                        }
+                    }
+                }
+                console.info(this.enemyGroup.length);
             }
         },
         debug:function(){
