@@ -20,6 +20,35 @@
     }
     window.fireball = fireball;
 
+    var explode1 = function(game,x,y){
+        this.game = game;
+        this.body = null;
+        this.x = x;
+        this.y = y;
+
+        this.init();
+    };
+    explode1.prototype = {
+        init : function(){
+            this.body = this.game.add.sprite(this.x,this.y,'prop');
+            this.body.anchor.set(0.5,0.5);
+            this.body.scale.set(1,1);
+            this.body.animations.add('explode',
+                [
+                    'explode1-1.png',
+                    'explode1-2.png',
+                    'explode1-3.png',
+                    'explode1-4.png',
+                    'explode1-5.png',
+                    'explode1-6.png'
+                ]);
+        },
+        explode : function(){
+            this.body.animations.play("explode",13,false,true);
+        }
+    };
+    window.explode1 = explode1;
+
     /**==============================**/
     /**                              **/
     /**          all movement        **/

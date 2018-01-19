@@ -149,6 +149,9 @@
             }
         },
         kill : function(){
+            var explode = new explode1(this.game,this.body.x,this.body.y);
+            explode.body.scale.set(0.8,0.8);
+            explode.explode();
             this.body.kill();
         },
         destroy : function(){
