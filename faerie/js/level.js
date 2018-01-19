@@ -1,8 +1,11 @@
-/**===============================**/
-/**      the game of level        **/
-/**      set level init           **/
-/** 'mainScene' set game updating **/
-/**===============================**/
+/**====================================================**/
+/**      the game of level                             **/
+/**      set level init                                **/
+/** 'mainScene' set game updating                      **/
+/**                                                    **/
+/** note:every level must has that initializing scene  **/
+/** and creating enemy                                 **/
+/**====================================================**/
 (function(window){
     var levelOne = function(game){
         this.game = game;
@@ -53,7 +56,8 @@
             this.foreground.anchor.set(0,1);
         },
         enemyCreate : function(){
-            var type = Math.round(Math.random()*2);
+            var type = Math.round(Math.random()*3);
+            //var type = 3;
             switch(type){
                 case 1 :
                     //single pumpin create
@@ -86,6 +90,27 @@
                         p.moveType = 2;
                         this.enemyGroup.push(p);
                         this.enemyCreateTime.pumpkinSingle.parabolic_equation = new Date().getTime();
+                    }
+                    break;
+                case 3 :
+                    var QueueTime = this.enemyCreateTime.pumpkinQueue,
+                        nowTime = new Date().getTime();
+                    var interval_pumpkinQueue = 6000;
+                    if(nowTime - QueueTime >= interval_pumpkinQueue){
+                        var y = Math.random()*(this.game.world.height - 50)+50,
+                            a = Math.random()*50+50;
+                        for(var i = 0;i < 4; i++){
+                            var p = new pumpkin(this.game);
+                            p.body.x = this.game.world.width+(p.body.width+10)*(i+1);
+                            p.body.y = y;
+                            p.A = a;
+                            p.ANGLE = 0+i*25;
+                            p.STARTY = p.body.y;
+                            p.SPEEDX = -5;
+                            p.moveType = 2;
+                            this.enemyGroup.push(p);
+                        }
+                        this.enemyCreateTime.pumpkinQueue = new Date().getTime();
                     }
                     break;
             }

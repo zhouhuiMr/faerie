@@ -20,6 +20,12 @@
     }
     window.fireball = fireball;
 
+
+    /**==============================**/
+    /**                              **/
+    /**       explode animations     **/
+    /**                              **/
+    /**==============================**/
     var explode1 = function(game,x,y){
         this.game = game;
         this.body = null;
