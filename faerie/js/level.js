@@ -75,7 +75,7 @@
                         this.enemyCreateTime.pumpkinSingle.line = new Date().getTime();
                     }
                     break;
-                case 2 :
+                case 99 :
                     var pumpkinSingleTime = this.enemyCreateTime.pumpkinSingle.parabolic_equation,
                         nowTime = new Date().getTime();
                     var interval_pumpkinSingle = 4000;
@@ -92,7 +92,7 @@
                         this.enemyCreateTime.pumpkinSingle.parabolic_equation = new Date().getTime();
                     }
                     break;
-                case 3 :
+                case 2 :
                     var QueueTime = this.enemyCreateTime.pumpkinQueue,
                         nowTime = new Date().getTime();
                     var interval_pumpkinQueue = 6000;
