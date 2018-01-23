@@ -241,7 +241,6 @@ function loadcomplete(){
                         }
                     }
                 }
-                console.info(this.enemyGroup.length);
             }
         },
         debug:function(){
