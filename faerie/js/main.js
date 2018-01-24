@@ -105,11 +105,15 @@ function loadcomplete(){
         this.LEVELNUMBER = 1;
         this.level = null;
 
+        this.GAMEGRADE = 0;
+
         this.KeyController = null;
 
         this.Player = null;
 
         this.enemyGroup = null;
+
+        this.gemGroup = null;
 
         this.foreground = null;
         this.midground = null;
@@ -138,6 +142,7 @@ function loadcomplete(){
                 this.enemyGroup = this.level.enemyGroup;
                 this.foreground = this.level.foreground;
                 this.midground = this.level.midground;
+                this.gemGroup = this.level.gemGroup;
             }else{
                 var tiptext = this.game.add.text(this.game.world.centerX,
                     this.game.world.centerY,
@@ -203,6 +208,10 @@ function loadcomplete(){
                                 character.HEALTH +=character.DEF - obj.Player.ATK;
                             }
                             if(character.HEALTH <= 0){
+                                //when enemy explodes ,then create gem.
+                                var g = new gem(this,character.body.x,character.body.y);
+                                obj.gemGroup.push(g);
+
                                 character.kill();
                             }
                         },null,this.game);
@@ -211,8 +220,26 @@ function loadcomplete(){
 
                 /**==================================**/
                 /**                                  **/
+                /** if Player collide gem,           **/
+                /** then gem destroy and             **/
+                /** game grade plus gem grade        **/
+                /**                                  **/
+                /**==================================**/
+                for(var i=0;i<this.gemGroup.length;i++){
+                    var g = this.gemGroup[i];
+                    if(g != null){
+                        g.move();
+                        this.game.physics.arcade.collide(g.body,obj.Player.body,function(ge,player){
+                            obj.GAMEGRADE += g.GRADE;
+                            ge.kill();
+                        },null, this.game);
+                    }
+                }
+
+                /**==================================**/
+                /**                                  **/
                 /** remove object that is out bound  **/
-                /** and object body is null          **/
+                /** and object's body is null        **/
                 /**                                  **/
                 /**==================================**/
                 for(var i=0;i<this.enemyGroup.length;i++){
@@ -241,7 +268,31 @@ function loadcomplete(){
                         }
                     }
                 }
+
+                /**==================================**/
+                /**                                  **/
+                /** remove object that is out bound  **/
+                /** and object's body is null        **/
+                /**                                  **/
+                /**==================================**/
+                for(var i=0;i<this.gemGroup.length;i++){
+                    var g = this.gemGroup[i];
+                    if(!g.body.alive){
+                        g.body.destroy();
+                        this.gemGroup.splice(i,1);
+                        break;
+                    }else{
+                        var gW = g.body.width;
+                        if(g.body.x <= -1 * gW){
+                            g.body.destroy();
+                            this.gemGroup.splice(i,1);
+                            break;
+                        }
+                    }
+                }
             }
+            console.info(this.GAMEGRADE);
+            //console.info(this.game.world.children.length);
         },
         debug:function(){
             //this.game.debug.body(this.Player.body);

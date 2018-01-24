@@ -102,6 +102,8 @@
         this.game = game;
         this.body = null;
 
+        this.TYPE = "PUMPKIN";
+
         //object attribute
         this.HEALTH = 1;
         this.ATK = 1;
@@ -149,9 +151,11 @@
             }
         },
         kill : function(){
+            //explode animation
             var explode = new explode1(this.game,this.body.x,this.body.y);
             explode.body.scale.set(0.8,0.8);
             explode.explode();
+
             this.body.kill();
         },
         destroy : function(){

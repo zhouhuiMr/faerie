@@ -17,6 +17,8 @@
 
         this.enemyGroup = null;
 
+        this.gemGroup = null;
+
         this.enemyCreateTime = null;
 
         this.init();
@@ -42,6 +44,9 @@
             };
             //craete enemy and add this to group
             this.enemyGroup = new Array();
+
+            //create grade gem and add this to group
+            this.gemGroup = new Array();
 
             //set foreground
             this.foreground = game.add.tileSprite(0,GAMEHEIGHT,GAMEWIDTH,40,'ground');
