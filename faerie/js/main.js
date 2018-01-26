@@ -5,6 +5,12 @@ var STARTSCENE = null,
     GAMESCENE = null,
     ENDSCENE = null;
 
+//html init
+var USERAGENT =navigator.userAgent.toLowerCase();
+var loadingImg = document.getElementsByClassName("loading_img")[0],
+    loadingNum = document.getElementsByClassName("loading_num")[0];
+var loadingBarW = 0;
+
 var game = new Phaser.Game(GAMEWIDTH, GAMEHEIGHT, Phaser.AUTO, 'gamecontainer', {
     preload: preload,
     create: create,
@@ -68,21 +74,30 @@ function render(){
 
 // loading game resource start
 function loadStart(){
-    console.info("loading start")
+    console.info("loading start");
+    
+    loadingBarW = document.getElementsByClassName("loading_span")[0].scrollWidth;
+    console.info(document.getElementsByClassName("loading_span"))
 }
 
 // the game is loading
 function filecomplete(progress, cacheKey, success, totalLoaded, totalFiles){
-    console.info("progress:"+progress);
-    console.info("cacheKey:"+cacheKey);
-    console.info("success:"+success);
-    console.info("totalLoaded:"+totalLoaded);
-    console.info("totalFiles:"+totalFiles);
+    //console.info("progress:"+progress);
+    //console.info("cacheKey:"+cacheKey);
+    //console.info("success:"+success);
+    //console.info("totalLoaded:"+totalLoaded);
+    //console.info("totalFiles:"+totalFiles);
+    loadingImg.style.left = progress/100*loadingBarW+"px";
+    loadingNum.innerHTML = progress+"%";
+
 }
 
 //the game loading  is complete
 function loadcomplete(){
-    console.info("loading complete")
+    //var parent = document.getElementById("gamecontainer"),
+    //    son = document.getElementById("gameloading");
+    //parent.removeChild(son);
+    console.info("loading complete");
 }
 
 /*================================*/
@@ -118,11 +133,20 @@ function loadcomplete(){
         this.foreground = null;
         this.midground = null;
 
-
         this.init();
     };
     mainScene.prototype = {
         init : function(){
+            //add controller on mobile phone
+            if(
+                USERAGENT.indexOf("iphone")>=0 ||
+                USERAGENT.indexOf("android")>=0 ||
+                USERAGENT.indexOf("ipad")>=0 ||
+                USERAGENT.indexOf("windows phone")>=0
+            ){
+
+            }
+
             //init key board controller
             this.KeyController = this.game.input.keyboard.addKeys({
                 "UP":Phaser.Keyboard.W,
@@ -291,7 +315,7 @@ function loadcomplete(){
                     }
                 }
             }
-            console.info(this.GAMEGRADE);
+            //console.info(this.GAMEGRADE);
             //console.info(this.game.world.children.length);
         },
         debug:function(){

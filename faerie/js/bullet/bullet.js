@@ -36,7 +36,7 @@
         this.game = game;
         this.body = null;
 
-        this.GRADE = 10; // the grade of gem
+        this.GRADE = 3; // the grade of gem
 
         this.x = x;
         this.y = y;

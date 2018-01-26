@@ -74,10 +74,14 @@
         },
         move : function(keycontroller){
             if(keycontroller.UP.isDown){
-                this.body.body.velocity.y = -1*this.SPEEDY;
+                if(this.body.y > 100){
+                    this.body.body.velocity.y = -1*this.SPEEDY;
+                }
             }
             if(keycontroller.DOWN.isDown){
-                this.body.body.velocity.y = this.SPEEDY;
+                if(this.body.y < this.game.height - 60){
+                    this.body.body.velocity.y = this.SPEEDY;
+                }
             }
             if(keycontroller.LEFT.isDown){
                 this.body.body.velocity.x = -1*this.SPEEDX;

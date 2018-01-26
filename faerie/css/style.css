@@ -10,8 +10,82 @@ body,html{
 
 #gamecontainer{
     position: relative;
-    width: 960px;
-    height: auto;
+    max-width: 960px;
+    width: 100%;
+    max-height: 540px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+#gamecontainer > canvas{
+    position : absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 30;
+}
+
+/**--------     loading container       ----------**/
+#gamecontainer > #gameloading{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #668B8B;
+    z-index: 40;
+}
+
+#gameloading > .loading_container{
+    position: relative;
+    width: 80%;
+    height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 230px;
+    background: none;
+}
+
+#gameloading > .loading_text{
+    position: relative;
+    width: 70%;
+    height: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    top: 230px;
+    line-height: 30px;
+    font: 600 28px 'Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif';
+    color: #ebfaff;
+}
+
+.loading_text > .loading_tip{
+    position: relative;
+    width: 200px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.loading_text > .loading_num{
+    float: right;
+    position: relative;
+    width: 130px;
+    height: 30px;
+}
+
+#gameloading > .loading_container > .loading_span{
+    position: absolute;
+    width: 90%;
+    height: 50px;
+    left: 5%;
+    top: 15px;
+    background: #333333;
+    border-radius: 20px;
+}
+
+.loading_container > .loading_img{
+    position: absolute;
+    top: -20px;
+    left: -35px;
+    width: 70px;
+    height: auto;
 }
