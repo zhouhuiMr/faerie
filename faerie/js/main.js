@@ -94,9 +94,9 @@ function filecomplete(progress, cacheKey, success, totalLoaded, totalFiles){
 
 //the game loading  is complete
 function loadcomplete(){
-    //var parent = document.getElementById("gamecontainer"),
-    //    son = document.getElementById("gameloading");
-    //parent.removeChild(son);
+    var parent = document.getElementById("gamecontainer"),
+       son = document.getElementById("gameloading");
+    parent.removeChild(son);
     console.info("loading complete");
 }
 
