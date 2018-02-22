@@ -87,7 +87,7 @@ function filecomplete(progress, cacheKey, success, totalLoaded, totalFiles){
     //console.info("success:"+success);
     //console.info("totalLoaded:"+totalLoaded);
     //console.info("totalFiles:"+totalFiles);
-    loadingImg.style.left = progress/100*loadingBarW+"px";
+    loadingImg.style.left = (progress/100*loadingBarW-20)+"px";
     loadingNum.innerHTML = progress+"%";
 
 }

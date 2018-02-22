@@ -37,7 +37,7 @@ body,html{
 
 #gameloading > .loading_container{
     position: relative;
-    width: 80%;
+    width: 320px;
     height: 100px;
     margin-right: auto;
     margin-left: auto;
@@ -47,19 +47,21 @@ body,html{
 
 #gameloading > .loading_text{
     position: relative;
-    width: 70%;
+    width: 320px;
     height: 30px;
     margin-right: auto;
     margin-left: auto;
+    left:0px;
     top: 230px;
     line-height: 30px;
-    font: 600 28px 'Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif';
+    font: 600 24px 'Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif';
     color: #ebfaff;
 }
 
 .loading_text > .loading_tip{
+    float: left;
     position: relative;
-    width: 200px;
+    width: 260px;
     height: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -68,14 +70,14 @@ body,html{
 .loading_text > .loading_num{
     float: right;
     position: relative;
-    width: 130px;
+    width: 60px;
     height: 30px;
 }
 
 #gameloading > .loading_container > .loading_span{
     position: absolute;
-    width: 90%;
-    height: 50px;
+    width: 100%;
+    height: 30px;
     left: 5%;
     top: 15px;
     background: #333333;
@@ -84,8 +86,8 @@ body,html{
 
 .loading_container > .loading_img{
     position: absolute;
-    top: -20px;
-    left: -35px;
-    width: 70px;
+    top: -5px;
+    left: -10px;
+    width: 50px;
     height: auto;
 }

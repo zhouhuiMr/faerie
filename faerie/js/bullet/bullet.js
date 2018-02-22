@@ -48,10 +48,10 @@
     gem.prototype = {
         init : function(){
             this.body = this.game.add.sprite(this.x,this.y,'prop','gem'+this.FRAMENUMBER+'.png');
-            var scale = (3+Math.round(Math.random()*1))/10;
+            var scale = 0.3;//(3+Math.round(Math.random()*1))/10;
             this.body.scale.set(scale,scale);
             this.body.anchor.set(0.5,0.5);
-            this.body.angle = 180 - Math.round(Math.random()*360);
+            this.body.angle = 45 - Math.round(Math.random()*45);
             this.body.outOfBoundsKill = false;
             this.body.checkWorldBounds = false;
             this.game.physics.enable(this.body,Phaser.Physics.ARCADE);
