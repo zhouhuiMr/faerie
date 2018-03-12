@@ -38,11 +38,11 @@
 },
 {
 	"filename": "midground.png",
-	"frame": {"x":0,"y":580,"w":1850,"h":540},
+	"frame": {"x":0,"y":580,"w":2048,"h":540},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":1850,"h":540},
-	"sourceSize": {"w":1850,"h":540},
+	"spriteSourceSize": {"x":0,"y":0,"w":2048,"h":540},
+	"sourceSize": {"w":2048,"h":540},
 	"pivot": {"x":0.5,"y":0.5}
 }],
 "meta": {
@@ -50,8 +50,8 @@
 	"version": "1.0",
 	"image": "ground.png",
 	"format": "RGBA8888",
-	"size": {"w":1920,"h":1120},
+	"size": {"w":2048,"h":1120},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a1fe6fd84263177678a970907e7ecd3c:de2923e48798736c44567f59bce3e7b8:40ddaf21241445873d2f4654d8101f43$"
+	"smartupdate": "$TexturePacker:SmartUpdate:974e8c840acb713e38d24a216b01211d:76fb955542eae3ce5e1edd984d670ed8:40ddaf21241445873d2f4654d8101f43$"
 }
 }

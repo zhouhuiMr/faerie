@@ -34,6 +34,8 @@ function preload(){
     game.load.atlas('character','/faerie/resource/character/character.png','/faerie/resource/character/character.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('bullet','/faerie/resource/fireball/fireball.png','/faerie/resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     game.load.atlas('prop','/faerie/resource/prop/prop.png','/faerie/resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.audio('playerAttack','/faerie/resource/sound/play_attack.mp3');
+    game.load.audio('soundlevelone','/faerie/resource/sound/levelone.mp3');
 }
 
 
