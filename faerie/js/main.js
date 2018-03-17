@@ -135,6 +135,9 @@ function loadcomplete(){
         this.foreground = null;
         this.midground = null;
 
+        this.backsound = null;
+        this.musicIsON = false;
+
         this.init();
     };
     mainScene.prototype = {
@@ -148,6 +151,10 @@ function loadcomplete(){
             ){
 
             }
+            //init sound
+            this.backsound = this.game.add.audio('soundlevelone');
+            this.backsound.allowMultiple = true;
+            this.backsound.loop = true;
 
             //init key board controller
             this.KeyController = this.game.input.keyboard.addKeys({
@@ -169,6 +176,10 @@ function loadcomplete(){
                 this.foreground = this.level.foreground;
                 this.midground = this.level.midground;
                 this.gemGroup = this.level.gemGroup;
+                if(this.musicIsON){
+                    this.Player.musicIsON = this.musicIsON;
+                    this.backsound.play();
+                }
             }else{
                 var tiptext = this.game.add.text(this.game.world.centerX,
                     this.game.world.centerY,

@@ -21,6 +21,8 @@
 
         this.emitter = null;
 
+        this.musicIsON = false;
+
         // object init
         this.init();
     }
@@ -71,7 +73,9 @@
                 var f = this;
                 atk.onComplete.add(function (sprite, animation) {
                     if (sprite.frame == 3) {
-                        //f.sound_playAttack.play();
+                        if(f.musicIsON){
+                            f.sound_playAttack.play();
+                        }
                         f.weapon.weapon.fire();
                         f.fly();
                     }

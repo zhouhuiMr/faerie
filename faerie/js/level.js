@@ -12,8 +12,6 @@
 
         this.Player = null;
 
-        this.backsound = null;
-
         this.foreground = null;
         this.midground = null;
 
@@ -27,11 +25,6 @@
     }
     levelOne.prototype = {
         init : function(){
-            this.backsound = this.game.add.audio('soundlevelone');
-            this.backsound.allowMultiple = true;
-            this.backsound.loop = true;
-            //this.backsound.play();
-
             //add background(farground)
             this.game.add.sprite(0,0,'ground','background.png');
 

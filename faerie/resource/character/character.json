@@ -65,20 +65,20 @@
 },
 "pumpkin.png":
 {
-	"frame": {"x":0,"y":770,"w":50,"h":38},
+	"frame": {"x":0,"y":770,"w":50,"h":44},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":38},
-	"sourceSize": {"w":50,"h":38},
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":44},
+	"sourceSize": {"w":50,"h":44},
 	"pivot": {"x":0.5,"y":0.5}
 }},
 "meta": {
-	"app": "http://www.codeandweb.com/texturepacker",
+	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "character.png",
 	"format": "RGBA8888",
-	"size": {"w":100,"h":808},
+	"size": {"w":100,"h":814},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d9bf54a9e04bbc3adca40d31b9367470:0fac50cf561638ddf8279bab9259e40b:42e475aa4a03af306bdc7acb5ff91d19$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6547215067671e14594ae780f8e164d9:f8733f177fc9bade69d2c745a09e0f5b:42e475aa4a03af306bdc7acb5ff91d19$"
 }
 }
