@@ -82,6 +82,20 @@ body,html{
     top: 15px;
     background: #333333;
     border-radius: 20px;
+    overflow: hidden;
+}
+
+.loading_span > .loading_bar{
+    position: absolute;
+    width: 0px;
+    height: 24px;
+    top:3px;
+    left: 3px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #ebfaff;
 }
 
 .loading_container > .loading_img{
