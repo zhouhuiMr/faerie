@@ -8,7 +8,8 @@ var STARTSCENE = null,
 //html init
 var USERAGENT =navigator.userAgent.toLowerCase();
 var loadingImg = document.getElementsByClassName("loading_img")[0],
-    loadingNum = document.getElementsByClassName("loading_num")[0];
+    loadingNum = document.getElementsByClassName("loading_num")[0],
+    loadingBar = document.getElementsByClassName("loading_bar")[0];
 var loadingBarW = 0;
 
 var game = new Phaser.Game(GAMEWIDTH, GAMEHEIGHT, Phaser.AUTO, 'gamecontainer', {
@@ -91,6 +92,7 @@ function filecomplete(progress, cacheKey, success, totalLoaded, totalFiles){
     //console.info("totalFiles:"+totalFiles);
     loadingImg.style.left = (progress/100*loadingBarW-20)+"px";
     loadingNum.innerHTML = progress+"%";
+    loadingBar.style.width = (progress/100*loadingBarW-10)+"px";
 
 }
 
