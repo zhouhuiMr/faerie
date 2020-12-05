@@ -31,12 +31,12 @@ function preload(){
     game.load.onLoadStart.add(loadStart, this);
     game.load.onFileComplete.add(filecomplete, this);
     game.load.onLoadComplete.add(loadcomplete, this);
-    game.load.atlas('ground','/faerie/resource/ground/ground.png','/faerie/resource/ground/ground.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-    game.load.atlas('character','/faerie/resource/character/character.png','/faerie/resource/character/character.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-    game.load.atlas('bullet','/faerie/resource/fireball/fireball.png','/faerie/resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-    game.load.atlas('prop','/faerie/resource/prop/prop.png','/faerie/resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-    game.load.audio('playerAttack','/faerie/resource/sound/play_attack.mp3');
-    game.load.audio('soundlevelone','/faerie/resource/sound/levelone.mp3');
+    game.load.atlas('ground','resource/ground/ground.png','resource/ground/ground.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.atlas('character','resource/character/character.png','resource/character/character.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.atlas('bullet','resource/fireball/fireball.png','resource/fireball/fireball.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.atlas('prop','resource/prop/prop.png','resource/prop/prop.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+    game.load.audio('playerAttack','resource/sound/play_attack.mp3');
+    game.load.audio('soundlevelone','resource/sound/levelone.mp3');
 }
 
 
